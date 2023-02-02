@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="hyyp://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Все люди</title>
+</head>
+<body>
+<div th:each="person : ${people}">
+    <!--Цикл с людьми. Подставляется id в список, по нажатию происходит переход к определенному человеку-->
+    <a th:href="@{/people/{id}(id=${person.getId()})}"
+       th:text="${person.getName() + ', ' + person.getAge() + ', ' + person.getEmail}">user</a>
+</div>
+
+<br/>
+<hr/>
+<!--<a th:href="@{/people/new}">Create new person</a>-->
+<a href="/people/new">Create new person</a>
+</body>
+</html>
